@@ -68,4 +68,21 @@ server.get('/api/users/:id', async (req, res) => {
 	}
 });
 
+server.delete('/api/users/:id', async (req, res) => {
+	const id = req.params.id;
+	try {
+		const del = await db.remove(id);
+		if (del) {
+			res.status(204).json(del);
+		} else {
+			res
+				.status(404)
+				.json({ message: 'The user with the specified ID does not exist' });
+		}
+	} catch (err) {
+		console.log(err);
+		res.status(500).json({ errorMessage: 'The user could not be removed' });
+	}
+});
+
 module.exports = server;
