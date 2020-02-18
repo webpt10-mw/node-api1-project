@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import uuid from 'uuid/v1';
 import User from './components/User';
-import './App.css';
+import './App.scss';
 
 function App() {
   const [users, setUsers] = useState([]);
