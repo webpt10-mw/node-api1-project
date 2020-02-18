@@ -8,6 +8,9 @@ function User(props) {
         <h2>{name}</h2>
         <p>{bio}</p>
       </div>
+      <button type='button' className='remove-btn'>
+        X
+      </button>
     </div>
   );
 }
