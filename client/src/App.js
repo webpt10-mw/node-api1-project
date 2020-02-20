@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import uuid from 'uuid/v1';
+import User from './components/User';
+import './App.scss';
 
 function App() {
+  const [users, setUsers] = useState([]);
+  console.log();
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/api/users')
+      .then(user => {
+        setUsers(user.data);
+        console.log(user);
+        console.log('R', user.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {users.map(info => {
+        return <User key={uuid()} info={info} />;
+      })}
     </div>
   );
 }

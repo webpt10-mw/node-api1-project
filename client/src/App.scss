@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+$dark-midnight-blue: #003672;
+$pale-aqua: #bfd7ea;
+$linen: #f7f3e3;
+$steel-blue: #3e78b2;
+$bright-cerulean: #1b98e0;
+
+$border-radius: 10px;
+
+.user-display-box {
+  background-color: $steel-blue;
+  border-radius: $border-radius;
+  margin: 25px auto;
+  padding: 10px;
+  width: 85%;
+}
+
+.info-display {
+  background-color: $linen;
+  border-radius: $border-radius;
+  width: 40%;
+  padding: 5px 15px;
+  margin: 0 auto;
+}
+
+.remove-btn {
+  margin: 5px;
+}

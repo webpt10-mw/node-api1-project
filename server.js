@@ -133,4 +133,8 @@ server.put('/api/users/:id', async (req, res) => {
   }
 });
 
+server.use((req, res) => {
+  res.status(404).json({ message: '404 page not found fail whale :(' });
+});
+
 module.exports = server;
